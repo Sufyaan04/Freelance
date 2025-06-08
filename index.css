@@ -1,0 +1,220 @@
+/* Fonts and Base */
+body {
+  font-family: 'Open Sans', sans-serif;
+  margin: 0;
+  padding: 0;
+  background: #fefefe;
+  color: #222;
+}
+
+/* Navbar */
+.navbar {
+  background-color: #fff;
+  padding: 20px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.logo {
+  font-family: 'Playfair Display', serif;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.nav-links {
+  display: flex;
+  gap: 15px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #222;
+  font-weight: 600;
+}
+
+.nav-links a:hover {
+  color: #c0392b;
+}
+
+.search-bar {
+  padding: 10px;
+  width: 200px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  margin-top: 10px;
+}
+
+/* Hero Carousel */
+.hero-carousel {
+  position: relative;
+  height: 60vh;
+  overflow: hidden;
+}
+
+.carousel-wrapper {
+  height: 100%;
+  width: 100%;
+}
+
+.carousel-slide {
+  display: flex;
+  width: 300%; /* Important: This should be 100% * number of slides (3 in your case) */
+  height: 100%;
+  /* Total animation duration: 3 banners * 3 seconds/banner = 9 seconds total */
+  animation: slide 9s infinite;
+}
+
+@keyframes slide {
+  /* Banner 1 (shows for first ~3 seconds) */
+  0%   { transform: translateX(0%); }
+  33%  { transform: translateX(0%); } /* Holds first image for ~3 seconds (33% of 9s) */
+
+  /* Transition to Banner 2, then holds for ~3 seconds */
+  34%  { transform: translateX(-100%); } /* Instantly slides to second banner */
+  67%  { transform: translateX(-100%); } /* Holds second image for ~3 seconds */
+
+  /* Transition to Banner 3, then holds for ~3 seconds */
+  68%  { transform: translateX(-200%); } /* Instantly slides to third banner */
+  99%  { transform: translateX(-200%); } /* Holds third image for ~3 seconds */
+
+  /* Reset for seamless loop at the end of the 9s cycle */
+  100% { transform: translateX(0%); } /* Instantly snaps back to the first banner */
+}
+
+
+.carousel-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.carousel-overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  text-shadow: 2px 2px 6px rgba(0,0,0,0.6);
+  text-align: center;
+}
+
+.carousel-inner img{
+    height:650px;
+    /* object-fit: cover; */
+}
+
+.carousel-overlay h1 {
+  font-size: 48px;
+  background: rgba(0,0,0,0.4);
+  padding: 10px 20px;
+  border-radius: 10px;
+}
+
+/* Product Grid */
+.products {
+  padding: 40px 20px;
+  text-align: center;
+}
+
+.products h2 {
+  font-size: 32px;
+  margin-bottom: 30px;
+}
+
+.product-grid {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+.product-card {
+  background: white;
+  border: 1px solid #eee;
+  border-radius: 10px;
+  width: 250px;
+  padding: 15px;
+  transition: transform 0.3s;
+}
+
+.product-card:hover {
+  transform: scale(1.03);
+}
+
+.product-card img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.product-card h3 {
+  margin-top: 10px;
+  font-size: 20px;
+}
+
+.product-card p {
+  color: #555;
+  font-weight: bold;
+}
+
+.add-to-cart {
+  display: inline-block;
+  margin-top: 10px;
+  background-color: #c0392b;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s;
+  font-weight: bold;
+}
+
+.add-to-cart:hover {
+  background-color: #a93226;
+}
+
+/* Footer */
+.footer {
+  background: #222;
+  color: white;
+  text-align: center;
+  padding: 20px 0;
+  font-size: 14px;
+}
+
+/* ✅ Mobile Responsive */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    width: 100%;
+    margin: 10px 0;
+  }
+
+  .search-bar {
+    width: 100%;
+    margin: 10px 0;
+  }
+
+  .carousel-overlay h1 {
+    font-size: 28px;
+  }
+
+  .product-grid {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .product-card {
+    width: 90%;
+  }
+}
